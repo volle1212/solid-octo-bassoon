@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAPit</title>
+
+    </head>
+
+<body>
+    <div>
+        <h1 >CAPIT</h1>
+
+        <form action="/add" method="post">
+            <div>
+                <input type="text" name="title" placeholder="Title">
+                <input type="text" name="name" placeholder="Name of publisher">
+                <input type="text" name="content" placeholder="Content">
+                <br>
+            </div>
+            <button type="submit">Add</button>
+        </form>
+
+        <hr>
+
+        {% for todo in todo_list[::-1] %}
+        <div style="border:1px solid black;">
+            <h1>{{todo.title }} </h1>
+            <h3>By: {{ todo.name }}</h3><br><br>
+            <p>{{todo.content}}</p><br>
+            <p>Publish time: {{todo.time[:-7]}}</p>
+
+            <a href="/delete/{{ todo.id }}">Delete</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
